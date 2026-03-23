@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=3.0">
+    <link rel="stylesheet" href="style.css?v=4.0">
 </head>
 
 <body>
@@ -377,24 +377,13 @@
         const modal = document.getElementById('downsell-modal');
         const closeModal = document.getElementById('close-modal');
         const declineCta = document.getElementById('decline-cta');
-        const modalDecline = document.querySelector('.modal-decline');
         let modalShown = false;
 
         function showModal() {
-            if (!modalShown) {
-                modal.classList.add('active');
-                modalShown = true;
-            }
+            modal.classList.add('active');
         }
 
-        // Trigger on Mouse Left Viewport (Exit Intent)
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY < 0) {
-                showModal();
-            }
-        });
-
-        // Trigger on Decline Link Click
+        // Trigger ONLY on Decline Link Click
         if (declineCta) {
             declineCta.addEventListener('click', (e) => {
                 e.preventDefault();

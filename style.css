@@ -757,57 +757,31 @@ h3 {
     justify-content: center;
 }
 
-/* Intersection Observer Classes */
+/* Instant Load (No delays) */
 .fade-in-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    opacity: 1;
+    transform: none;
+    transition: none;
+    /* Remove a transição suave para ser instantâneo */
 }
 
 .fade-in-up.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
-/* Stagger Animation delays */
-.delay-1 {
-    transition-delay: 0.1s;
-}
-
-.delay-2 {
-    transition-delay: 0.2s;
-}
-
-.delay-3 {
-    transition-delay: 0.3s;
-}
-
-.delay-4 {
-    transition-delay: 0.4s;
-}
-
-.delay-5 {
-    transition-delay: 0.5s;
-}
-
-.delay-6 {
-    transition-delay: 0.6s;
-}
-
-.delay-7 {
-    transition-delay: 0.7s;
-}
-
-.delay-8 {
-    transition-delay: 0.8s;
-}
-
-.delay-9 {
-    transition-delay: 0.9s;
-}
-
+/* Stagger Animation delays removed */
+.delay-1,
+.delay-2,
+.delay-3,
+.delay-4,
+.delay-5,
+.delay-6,
+.delay-7,
+.delay-8,
+.delay-9,
 .delay-10 {
-    transition-delay: 1.0s;
+    transition-delay: 0s !important;
 }
 
 /* Responsive Adjustments */
