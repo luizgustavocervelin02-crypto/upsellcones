@@ -960,13 +960,26 @@ h3 {
     }
 }
 
-.guarantee-box {
-    font-size: 0.85rem;
-}
+@media (max-width: 480px) {
+    h1 {
+        font-size: clamp(1.4rem, 7vw, 1.8rem);
+    }
 
-.decline-link a {
-    font-size: 0.8rem;
-}
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .price-highlight {
+        font-size: clamp(2.2rem, 8vw, 2.6rem);
+    }
+
+    .guarantee-box {
+        font-size: 0.8rem;
+    }
+
+    .decline-link a {
+        font-size: 0.75rem;
+    }
 }
 
 /* Modal Overlay */
