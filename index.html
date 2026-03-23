@@ -34,17 +34,12 @@
 
                 <!-- VSL Video Container -->
                 <div class="video-container fade-in-up delay-3">
-                    <div class="video-wrapper">
-                        <video id="vsl-video" src="VSL-UPSELL.mp4" controls preload="metadata"
-                            style="width: 100%; height: auto; display: block; outline: none; border-radius: 12px;"
-                            autoplay muted playsinline loop></video>
-                        <div class="sound-notice" id="sound-unmute">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                <path
-                                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                            </svg>
-                            Clique para ouvir
-                        </div>
+                    <div class="video-wrapper shorts-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/PxNTszBZXwM?autoplay=1&mute=1&loop=1&playlist=PxNTszBZXwM"
+                            title="YouTube Shorts VSL" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -325,26 +320,6 @@
         backToTopButton.onclick = function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
-
-        // Unmute Video Logic
-        const vslVideo = document.getElementById('vsl-video');
-        const soundNotice = document.getElementById('sound-unmute');
-
-        soundNotice.addEventListener('click', () => {
-            vslVideo.muted = false;
-            soundNotice.style.display = 'none';
-            vslVideo.currentTime = 0; // Opcional: Reinicia o vídeo ao ouvir pra não perder nada
-            vslVideo.play();
-        });
-
-        vslVideo.addEventListener('play', () => {
-            // Se o usuário der play manualmente e o vídeo estiver mudo, mostra o aviso
-            if (vslVideo.muted) {
-                soundNotice.style.display = 'flex';
-            } else {
-                soundNotice.style.display = 'none';
-            }
-        });
 
         window.onbeforeunload = function () {
             window.scrollTo(0, 0);
