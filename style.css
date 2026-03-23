@@ -172,10 +172,13 @@ h3 {
 }
 
 .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-height: 85vh;
-    /* Previne vídeos verticais de ficarem gigantescos na tela */
-    display: block;
+    height: 100%;
+    object-fit: cover;
+    /* Garante que preencha os 16:9 sem barras */
 }
 
 .sound-notice {
@@ -183,14 +186,20 @@ h3 {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(BE185D, 0.9);
-    /* Cor deep pink do tema */
     background: var(--color-pink-deep);
     color: white;
     padding: 10px 20px;
-    /* This element is currently hidden and its styles are not actively used. */
-    /* It's kept here for potential future use or reference. */
-    display: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+    animation: pulseNotice 2.5s infinite;
 }
 
 @keyframes pulseNotice {
