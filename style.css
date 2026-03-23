@@ -6,7 +6,7 @@
     --color-gold-soft: #D4AF37;
     --color-gold-light: #FBECC4;
     --color-white: #FFFFFF;
-    --color-text-dark: #2A1B22; 
+    --color-text-dark: #2A1B22;
     --color-text-light: #5B4853;
     --color-danger: #EF4444;
     --color-success: #10B981;
@@ -30,7 +30,7 @@ body {
     overflow-x: hidden;
     position: relative;
     /* Soft dynamic gradient background to evoke luxury */
-    background-image: 
+    background-image:
         radial-gradient(circle at 15% 50%, rgba(252, 231, 243, 0.9), transparent 30%),
         radial-gradient(circle at 85% 30%, rgba(251, 236, 196, 0.7), transparent 30%);
     background-attachment: fixed;
@@ -39,7 +39,10 @@ body {
 
 .glitter-overlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     pointer-events: none;
     /* Delicate simulated glitter */
     background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="0.8" fill="%23D4AF37" opacity="0.4"/><circle cx="50" cy="40" r="1.2" fill="%23F472B6" opacity="0.3"/><circle cx="80" cy="80" r="1" fill="%23D4AF37" opacity="0.6"/><circle cx="30" cy="70" r="0.7" fill="%23FFFFFF" opacity="0.9"/></svg>');
@@ -143,6 +146,40 @@ h3 {
     font-weight: 400;
 }
 
+/* Video VSL */
+.video-container {
+    max-width: 800px;
+    margin: 40px auto 0;
+    padding: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: #000;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 /* Glass Card */
 .glass-card {
     background: var(--glass-bg);
@@ -170,12 +207,12 @@ h3 {
     margin-bottom: 16px;
     font-size: 1.15rem;
     color: var(--color-text-light);
-    background: rgba(255,255,255,0.8);
+    background: rgba(255, 255, 255, 0.8);
     padding: 16px 24px;
     border-radius: 16px;
-    border: 1px solid rgba(255,255,255,0.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
 .pain-list li:hover {
@@ -190,10 +227,23 @@ h3 {
     font-size: 1.3rem;
 }
 
-.icon.cross { color: var(--color-danger); }
-.icon.check { color: var(--color-success); }
-.icon.clock { color: var(--color-gold-soft); text-shadow: 0 0 5px rgba(212,175,55,0.5); }
-.icon.soft-check { color: var(--color-pink-primary); margin-right: 10px;}
+.icon.cross {
+    color: var(--color-danger);
+}
+
+.icon.check {
+    color: var(--color-success);
+}
+
+.icon.clock {
+    color: var(--color-gold-soft);
+    text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+.icon.soft-check {
+    color: var(--color-pink-primary);
+    margin-right: 10px;
+}
 
 .pain-conclusion {
     text-align: center;
@@ -237,8 +287,13 @@ h3 {
 }
 
 @keyframes shineBg {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
 }
 
 .solution-desc {
@@ -296,7 +351,7 @@ h3 {
     height: 400px;
     object-fit: cover;
     border-radius: 24px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
     border: 6px solid white;
     position: absolute;
     animation: float 6s ease-in-out infinite;
@@ -307,6 +362,7 @@ h3 {
 .image-left {
     transform: rotate(-6deg) translateX(-80px);
 }
+
 .image-right {
     animation-delay: 3s;
     transform: rotate(6deg) translateX(80px);
@@ -351,7 +407,7 @@ h3 {
 .method-callout {
     text-align: center;
     font-size: 1.3rem;
-    background: rgba(255,255,255,0.85);
+    background: rgba(255, 255, 255, 0.85);
     padding: 35px;
     border: 2px dashed var(--color-pink-primary);
 }
@@ -366,7 +422,7 @@ h3 {
     padding: 60px 40px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(253,242,248,0.95) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 242, 248, 0.95) 100%);
     box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
 }
 
@@ -377,7 +433,9 @@ h3 {
 .pricing-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 8px;
     background: linear-gradient(90deg, var(--color-gold-soft), #F8DE7E, var(--color-gold-soft));
 }
@@ -465,7 +523,7 @@ h3 {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
     transform: rotate(30deg);
     animation: button-shine 4s infinite;
 }
@@ -507,18 +565,42 @@ h3 {
 
 /* Keyframe Animations */
 @keyframes float {
-    0% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
-    50% { transform: translateY(-20px) rotate(var(--rotation, 0deg)); }
-    100% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
+    0% {
+        transform: translateY(0px) rotate(var(--rotation, 0deg));
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(var(--rotation, 0deg));
+    }
+
+    100% {
+        transform: translateY(0px) rotate(var(--rotation, 0deg));
+    }
 }
 
-.image-left { --rotation: -6deg; }
-.image-right { --rotation: 6deg; }
+.image-left {
+    --rotation: -6deg;
+}
+
+.image-right {
+    --rotation: 6deg;
+}
 
 @keyframes button-shine {
-    0% { left: -100%; top: -100%; }
-    20% { left: 100%; top: 100%; }
-    100% { left: 100%; top: 100%; }
+    0% {
+        left: -100%;
+        top: -100%;
+    }
+
+    20% {
+        left: 100%;
+        top: 100%;
+    }
+
+    100% {
+        left: 100%;
+        top: 100%;
+    }
 }
 
 .pulse-animation {
@@ -526,9 +608,17 @@ h3 {
 }
 
 @keyframes cta-pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Intersection Observer Classes */
@@ -544,16 +634,45 @@ h3 {
 }
 
 /* Stagger Animation delays */
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }
-.delay-5 { transition-delay: 0.5s; }
-.delay-6 { transition-delay: 0.6s; }
-.delay-7 { transition-delay: 0.7s; }
-.delay-8 { transition-delay: 0.8s; }
-.delay-9 { transition-delay: 0.9s; }
-.delay-10 { transition-delay: 1.0s; }
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.delay-5 {
+    transition-delay: 0.5s;
+}
+
+.delay-6 {
+    transition-delay: 0.6s;
+}
+
+.delay-7 {
+    transition-delay: 0.7s;
+}
+
+.delay-8 {
+    transition-delay: 0.8s;
+}
+
+.delay-9 {
+    transition-delay: 0.9s;
+}
+
+.delay-10 {
+    transition-delay: 1.0s;
+}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -566,7 +685,7 @@ h3 {
         flex-direction: column;
         gap: 30px;
     }
-    
+
     .floating-image {
         position: relative;
         width: 100%;
@@ -574,25 +693,26 @@ h3 {
         height: 320px;
         margin: 0 auto;
     }
-    
-    .image-left, .image-right {
+
+    .image-left,
+    .image-right {
         transform: rotate(0) translateX(0);
         --rotation: 0deg;
     }
-    
+
     .benefits-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .pricing-card {
         padding: 45px 25px;
     }
-    
+
     .cta-button {
         font-size: 1.2rem;
         padding: 20px 15px;
     }
-    
+
     .price-highlight {
         font-size: 3.5rem;
     }
