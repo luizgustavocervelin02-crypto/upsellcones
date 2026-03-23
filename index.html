@@ -37,13 +37,6 @@
                     <div class="video-wrapper">
                         <iframe src="https://drive.google.com/file/d/1QXwKbpeFuLk7NaePhdQStPjraJErIDd6/preview"
                             width="100%" height="100%" frameborder="0" allow="autoplay" allowfullscreen></iframe>
-                        <div class="sound-notice" id="sound-unmute">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                                <path
-                                    d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                            </svg>
-                            Clique para ouvir
-                        </div>
                     </div>
                 </div>
             </div>
@@ -213,7 +206,8 @@
                             </span> Oferta disponível por: <span id="countdown">15:00</span></span>
                     </div>
 
-                    <a href="#" class="cta-button pulse-animation" id="buy-cta">
+                    <a href="https://pay.lowify.com.br/checkout?product_id=3I1DWN" class="cta-button pulse-animation"
+                        id="buy-cta">
                         👉 QUERO LUCRAR MAIS COM MEUS CONES
                     </a>
 
@@ -240,11 +234,65 @@
                 </div>
 
                 <div class="decline-link">
-                    <a href="#" id="decline-cta">❌ Não, prefiro continuar tentando sozinho(a)</a>
+                    <a href="javascript:void(0)" id="decline-cta">❌ Não, prefiro continuar tentando sozinho(a)</a>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Downsell Popup Modal -->
+    <div class="modal-overlay" id="downsell-modal">
+        <div class="modal-card">
+            <button class="modal-close" id="close-modal">&times;</button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-badge">⚠️ ÚLTIMA CHANCE</span>
+                    <h2>ESPERA! NÃO SAIA AINDA…</h2>
+                </div>
+
+                <div class="modal-body">
+                    <p class="modal-intro">💔 Eu não quero que você perca essa chance…</p>
+                    <p>Se você chegou até aqui, é porque quer fazer seus cones darem certo…<br>Mas talvez esteja
+                        pensando se vale a pena…</p>
+
+                    <div class="special-condition">
+                        <p>✨ Liberamos uma condição especial só pra você agora ✨</p>
+                        <h3>🔥 SEGREDO DOS CONES QUE VENDEM TODOS OS DIAS</h3>
+                        <div class="modal-price">
+                            <span class="old-price">De R$ 47 por apenas:</span>
+                            <span class="new-price">💥 R$ 27</span>
+                        </div>
+                    </div>
+
+                    <p class="modal-text-small">
+                        Menos que um lanche…<br>
+                        Para aprender o que pode te gerar dinheiro todos os dias.
+                    </p>
+
+                    <div class="modal-reflection">
+                        <p>💭 Imagina daqui a alguns dias…<br>Você vendo outras pessoas vendendo… Recebendo pedidos…
+                            Fazendo dinheiro…<br>E você pensando: <strong>“Eu poderia ter começado…”</strong></p>
+                    </div>
+
+                    <div class="modal-value">
+                        <p>💰 Com apenas algumas vendas… Isso aqui já se paga. Depois disso? <strong>É só
+                                lucro.</strong></p>
+                    </div>
+
+                    <p class="modal-urgency">⏰ Mas atenção… Essa é a <strong>ÚLTIMA chance</strong> e pode desaparecer
+                        assim que você fechar essa página.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="https://pay.lowify.com.br/go.php?offer=r1oby7e" class="cta-button modal-cta">
+                        👉 SIM, QUERO APROVEITAR POR R$27
+                    </a>
+                    <a href="https://pay.lowify.com.br/go.php?offer=r1oby7e" class="modal-decline">Não, prefiro
+                        continuar sem saber como vender</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="main-footer">
         <div class="container">
@@ -325,25 +373,50 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
-        // Unmute Video Logic
-        const vslVideo = document.getElementById('vsl-video');
-        const soundNotice = document.getElementById('sound-unmute');
+        // Downsell Modal Logic
+        const modal = document.getElementById('downsell-modal');
+        const closeModal = document.getElementById('close-modal');
+        const declineCta = document.getElementById('decline-cta');
+        const modalDecline = document.querySelector('.modal-decline');
+        let modalShown = false;
 
-        soundNotice.addEventListener('click', () => {
-            vslVideo.muted = false;
-            soundNotice.style.display = 'none';
-            vslVideo.currentTime = 0; // Opcional: Reinicia o vídeo ao ouvir pra não perder nada
-            vslVideo.play();
-        });
+        function showModal() {
+            if (!modalShown) {
+                modal.classList.add('active');
+                modalShown = true;
+            }
+        }
 
-        vslVideo.addEventListener('play', () => {
-            // Se o usuário der play manualmente e o vídeo estiver mudo, mostra o aviso
-            if (vslVideo.muted) {
-                soundNotice.style.display = 'flex';
-            } else {
-                soundNotice.style.display = 'none';
+        // Trigger on Mouse Left Viewport (Exit Intent)
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 0) {
+                showModal();
             }
         });
+
+        // Trigger on Decline Link Click
+        if (declineCta) {
+            declineCta.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal();
+            });
+        }
+
+        // Close Modal Logic
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+        }
+
+        // Close on Overlay Click
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
 
         window.onbeforeunload = function () {
             window.scrollTo(0, 0);
