@@ -621,6 +621,95 @@ h3 {
     }
 }
 
+/* Footer Styling */
+.main-footer {
+    background-color: var(--color-white);
+    padding: 60px 0 40px;
+    text-align: center;
+    border-top: 1px solid var(--color-pink-nude);
+    margin-top: 50px;
+}
+
+.footer-links {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-pink-primary);
+}
+
+.main-footer p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.footer-disclaimer {
+    font-size: 0.8rem !important;
+    max-width: 600px;
+    margin: 20px auto 0 !important;
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-pink-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(244, 114, 182, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(20px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--color-pink-deep);
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Countdown Styling Adjustment */
+#countdown {
+    color: var(--color-danger);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Intersection Observer Classes */
 .fade-in-up {
     opacity: 0;
@@ -715,5 +804,12 @@ h3 {
 
     .price-highlight {
         font-size: 3.5rem;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
     }
 }
