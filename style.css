@@ -150,7 +150,7 @@ h3 {
 .video-container {
     max-width: 800px;
     margin: 40px auto 0;
-    padding: 12px;
+    padding: 10px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
@@ -161,17 +161,63 @@ h3 {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%;
-    /* Proporção 16:9 */
-    height: 0;
+    width: 100%;
+    height: auto;
     overflow: hidden;
     border-radius: 16px;
     background-color: #000;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.video-wrapper iframe,
 .video-wrapper video {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    /* Previne vídeos verticais de ficarem gigantescos na tela */
+    display: block;
+}
+
+.sound-notice {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(BE185D, 0.9);
+    /* Cor deep pink do tema */
+    background: var(--color-pink-deep);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+    animation: pulseNotice 2.5s infinite;
+}
+
+@keyframes pulseNotice {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.05);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+.video-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
